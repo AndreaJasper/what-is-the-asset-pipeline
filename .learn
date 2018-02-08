@@ -1,7 +1,6 @@
 tags:
-  - tag_1
-  - tag_2
+  - "asset pipeline"
 languages:
-  - language_1
-  - language_1
+  - ruby
+  - javaScript
 resources: 0
