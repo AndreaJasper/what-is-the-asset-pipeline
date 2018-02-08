@@ -2,6 +2,12 @@
 
 ## Objectives
 
+1. State the general purpose of the Asset Pipeline
+1. Explain how concatenation, minification, and compression affect performance
+
+
+====
+
 1. Understand the 4 main features of the asset pipeline.
 2. Identify the Asset Paths
 3. Know how Asset Manifests provide concatenation of CSS and JS.
