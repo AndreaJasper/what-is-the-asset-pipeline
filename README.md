@@ -3,7 +3,7 @@
 ## Objectives
 
 1. State the general purpose of the Asset Pipeline
-1. Explain how concatenation, minification, and compression affect performance
+2. Explain how concatenation, minification, and compression affect performance
 
 ## Introduction
 
@@ -27,12 +27,17 @@ Let's dig deeper into this statement.
 The AP provides a means to **concatenate**. This is a technology-word which
 means "to join together into one" or to "pour into the same container." It also
 uses the word **asset** when the word **file** would probably do just as well.
-Computers don't need whitespace in code, but human programmers like it. But if
+
+While human programmers like it, computers don't need whitespace in code. But if
 you're trying to save space you can remove all the whitespace (Space, Carriage
-Return) and make the whole file as if it were one _very long_ line; this is
-called **minification**. Some web servers will even let you send your "assets"
-as if they were in a [zipfile][] across the Internet; this is called
+Return) and make the whole file as if it were one _very long_ line. This is
+called **minification**.
+
+Finally, some web servers will even let you send your "assets"
+as if they were in a [zipfile][zipfile] across the Internet; this is called
 **compression**.
+
+Now that we have unpacked those three terms, let's translate the documentation's description of the Asset Pipeline.
 
 So the first sentence is:
 
@@ -44,16 +49,16 @@ Let's try that second sentence now:
 
 > It also adds the ability to write these (files' information) in other
 > languages and to preprocess them, before being joined together, from
-> languages like CoffeeScript or SASS into a languages that the browser
+> languages like CoffeeScript or SASS into languages that the browser
 > natively understands like JavaScript (for CoffeeScript) and CSS (for SASS).
 
 Let's try that third sentence, at last:
 
 > [The AP] allows (files) from your application to be automatically combined
-> with assets from other gems.
+> with (files) from other gems.
 
 It's important to try to come up with your own summary of what these
-"translated" sentences mean _for you_ &mdash; _in your own words_. Take the
+"translated" sentences mean _to you_ &mdash; _in your own words_. Take the
 time to re-read the original introduction and see if you can make sense of this
 in _your_ interpretation. If you need help, ask for it now.
 
@@ -68,13 +73,13 @@ this definition isn't as _formal_ but it might be easier to remember.
 > JavaScript files. It even has the ability to take files written in other
 > languages and mangle them from some weird fancy-language like SASS or
 > CoffeeScript and to turn them into good old CSS or JavaScript. Once all the
-> data are gathered, it can then join them into one file which it then can
+> data are gathered, it can then join them into one file which it can
 > "minify" or compress.
 
-## Why Concatenate, Minify, and Compress
+## Why Concatenate, Minify, and Compress?
 
 Let's answer the question of "Why Concatenate, Minify, and Compress?" by asking
-the reverse, why separate CSS work into separate files? As we learned in "Intro
+the reverse: "Why separate CSS work into separate files?". As we learned in "Intro
 to MVC" it's helpful, as a human programmer, to separate types of work by file.
 It's helpful to keep CSS about the top bar of our web site in a file called
 `header.css`; it's helpful to keep information about the bottom-page styling in
@@ -94,15 +99,15 @@ doesn't care if you:
 ```
 
 The motivation is not for a _technical reason_ from within the browser. The
-problem which the Asset Pipeline solves is best understood from the _user's_
+problem, which the Asset Pipeline solves, is best understood from the _user's_
 perspective.
 
 ## The User Experience of Requesting Multiple Assets
 
-Imagine a user visits our `example.html` page in a browser. Let's imagine a
-cost must be paid for each network connection.
+Imagine a user visits our website that serves `example.html` in a browser. Let's imagine a
+cost must be paid for each network connection:
 
-1. Cost to connect to example.html and receive the page
+1. Cost to connect and receive the `example.html` file
 2. Blank screen is shown
 3. Cost to find `<link>` tags that call for other assets
 4. Cost to connect to the web server to grab `header.css`
@@ -112,13 +117,13 @@ cost must be paid for each network connection.
    and controls the render)
 8. Fully "rendered" page is displayed and the user perceives "Page Ready."
 
-Obviously if `example.html` has more CSS pages (or JavaScript pages) each
-_additional_ page has a _fixed cost_ associated with it and causes a
-_degradation in time to page load_ as perceived by the end user.
+If `example.html` has more CSS pages (or JavaScript pages) each
+_additional_ page has a _fixed cost_ associated with it and causes an
+_increase in time to page load_ as perceived by the end user.
 
-Now let's imagine that the Asset Pipeline does its "concatenation."
+Now, let's imagine that the Asset Pipeline does its **concatenation**:
 
-1. Cost to connect to example.html and receive the page
+1. Cost to connect and receive the `example.html` file
 2. Blank screen is shown
 3. Cost to find `<link>` tags that call for other assets
 4. Cost to connect to the web server to grab `combined-mega-css-file.css`
@@ -129,20 +134,22 @@ Now let's imagine that the Asset Pipeline does its "concatenation."
 8. Fully "rendered" page is displayed and the user perceives "Page Ready."
 
 Imagine making `combined-mega-css-file.css` _**even**_ smaller by **minifying**
-it and then by **compressing** it. We're moving a smaller package which still
-provides us programmers all the advantages of separation of concerns.
+it and then by **compressing** it. In utilizing the AP, we're moving fewer and
+smaller packages without losing the advantages of separation of concerns.
 
 ## Conclusion
 
 Concatenation, minification, and compression of assets held across multiple
-directories to shrink the size of data transferred to end users thus decreasing
-page load time is the primary benefit of the Asset Pipeline.
+directories to shrink the size of data transferred to end users, thus decreasing
+page load time, is the primary benefit of the Asset Pipeline.
 
-Once this primary benefit of the Asset Pipeline was realized, the clever folks
-behind Rails found additional uses and, sigh, problems with this "mega asset."
+## Next Steps
 
-We'll finish up thinking about concatenation, minification and compression by
+We'll finish up thinking about concatenation, minification, and compression by
 discussing how to configure where assets to be processed are found. We'll then
 talk about how the concatenation process could also be paired with
 transformation. Finally we'll discuss how "Asset Fingerprinting" helps handle a
 tricky issue.
+
+[APRG]: http://guides.rubyonrails.org/asset_pipeline.html
+[zipfile]: https://en.wikipedia.org/wiki/Zip_(file_format)
