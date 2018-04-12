@@ -37,6 +37,7 @@ Finally, some web servers will even let you send your "assets"
 as if they were in a [zipfile][zipfile] across the Internet; this is called
 **compression**.
 
+
 Now that we have unpacked those three terms, let's translate the documentation's description of the Asset Pipeline.
 
 So the first sentence is:
@@ -153,3 +154,4 @@ tricky issue.
 
 [APRG]: http://guides.rubyonrails.org/asset_pipeline.html
 [zipfile]: https://en.wikipedia.org/wiki/Zip_(file_format)
+
