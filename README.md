@@ -27,22 +27,18 @@ Let's dig deeper into this statement.
 The AP provides a means to **concatenate**. This is a technology-word which
 means "to join together into one" or to "pour into the same container." It also
 uses the word **asset** when the word **file** would probably do just as well.
-For the rest of these documents think of **asset** and **file** being roughly
-the same thing.
 
 While human programmers like it, computers don't need whitespace in code. But if
 you're trying to save space you can remove all the whitespace (Space, Carriage
 Return) and make the whole file as if it were one _very long_ line. This is
 called **minification**.
 
-A final optimization is that some web servers will even let you send
-your "assets" as if they were in a [zipfile][] across the Internet; this is
-called **compression**.
+Finally, some web servers will even let you send your "assets"
+as if they were in a [zipfile][zipfile] across the Internet; this is called
+**compression**.
 
-Thus, we have parsed the docs and should understand how the Asset Pipeline's
-primary features of concatenating, minifying, and compression help decrease the
-amount of data required to be sent on page load.  Let's translate the
-documentation's description of the Asset Pipeline.
+
+Now that we have unpacked those three terms, let's translate the documentation's description of the Asset Pipeline.
 
 So the first sentence is:
 
@@ -60,7 +56,7 @@ Let's try that second sentence now:
 Let's try that third sentence, at last:
 
 > [The AP] allows (files) from your application to be automatically combined
-> with assets (_remember_, "files") from other gems.
+> with (files) from other gems.
 
 It's important to try to come up with your own summary of what these
 "translated" sentences mean _to you_ &mdash; _in your own words_. Take the
@@ -157,4 +153,5 @@ transformation. Finally we'll discuss how "Asset Fingerprinting" helps handle a
 tricky issue.
 
 [APRG]: http://guides.rubyonrails.org/asset_pipeline.html
-[zipfile]: https://en.wikipedia.org/wiki/HTTP_compression
+[zipfile]: https://en.wikipedia.org/wiki/Zip_(file_format)
+
